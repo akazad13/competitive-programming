@@ -58,9 +58,8 @@ int main()
         G[u][v]=w;
         G[v][u]=w;
     }
-
+    
     Floyed_Warshall();
-
     priority_queue<int> Q;
 
     for(int i=0;i<n;i++)
@@ -71,9 +70,6 @@ int main()
             Q.push(G[i][j]);
         }
     }
-
     printf("%d\n",Q.top());
-
-
     return 0;
 }
