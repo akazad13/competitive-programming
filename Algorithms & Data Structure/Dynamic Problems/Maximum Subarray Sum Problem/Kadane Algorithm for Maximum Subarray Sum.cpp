@@ -9,7 +9,8 @@ using namespace std;
 
 ll arr[1000010];
 
-ll Kadane(ll n) {
+ll Kadane(ll n) 
+{
     ll maxSum = -1*INT_MAX, cur = 0;
     LOOP(i,n) 
     {
