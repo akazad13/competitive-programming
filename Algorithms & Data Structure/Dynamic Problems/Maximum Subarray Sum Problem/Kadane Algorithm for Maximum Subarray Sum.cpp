@@ -4,15 +4,15 @@
 using namespace std;
 #define ll                   long long
 #define scl(n)               scanf("%lld",&n)
-#define FOR(i,n)             for(ll i=1;i<=n;i++)
-#define LOOP(i,n)            for(ll i=0;i<n;i++)
+#define FOR0(i,n)            for(ll i=0;i<n;i++)
+#define FOR1(i,n)             for(ll i=1;i<=n;i++)
 
 ll arr[1000010];
 
 ll Kadane(ll n) 
 {
     ll maxSum = -1*INT_MAX, cur = 0;
-    LOOP(i,n) 
+    FOR0(i,n) 
     {
         cur = max(arr[i], cur+arr[i]);
         maxSum = max(maxSum, cur);
@@ -29,10 +29,10 @@ int main()
 
     ll n,test;
     scl(test);
-    FOR(cs,test)
+    FOR1(cs,test)
     {
         scl(n);
-        LOOP(i,n)
+        FOR0(i,n)
         {
             scl(arr[i]);
         }
