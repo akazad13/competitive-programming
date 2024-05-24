@@ -1,6 +1,8 @@
-class Solution {
+class Solution
+{
     public:
-     int findNumbers(vector<int> &nums) {
+     int findNumbers(vector<int> &nums) 
+     {
          int count=0;
          for(int num : nums)
          {
