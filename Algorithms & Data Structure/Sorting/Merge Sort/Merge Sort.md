@@ -3,7 +3,7 @@
 
 Merge sort is a sorting algorithm that follows the divide-and-conquer approach. It works by recursively dividing the input array into smaller subarrays and sorting those subarrays, then merging them back together to obtain the sorted array.
 
-So, we can say that the process of merge sort is to divide the array into two halves, sort each half, and then merge the sorted halves back together. This process is repeated until the entire array is sorted.
+So, the process of merge sort is to divide the array into two halves, sort each half, and then merge the sorted halves back together. This process is repeated until the entire array is sorted.
 
 #### Here’s a step-by-step explanation of how merge sort works:
 
@@ -18,7 +18,23 @@ So, we can say that the process of merge sort is to divide the array into two ha
     Input:  48 38 27 43 10 30
     Output: 10 27 30 38 43 48
 
+![1](https://github.com/user-attachments/assets/6c2ee25a-34d8-460a-9fd0-d84595e55f74)
 
+![2](https://github.com/user-attachments/assets/e9feec37-0659-46fe-b332-c4a9c7cc2396)
+
+![3](https://github.com/user-attachments/assets/13ebaa66-b6cd-490f-9d53-c6d1f4c18ef7)
+
+![4](https://github.com/user-attachments/assets/2baa0777-a222-422a-beaf-770f4ab13cfb)
+
+![5](https://github.com/user-attachments/assets/337330b0-a936-420d-bc67-90014a657700)
+
+![6](https://github.com/user-attachments/assets/97be4f0f-46e3-479d-9d44-a8c23bc82129)
+
+![7](https://github.com/user-attachments/assets/e5368505-9cd4-4d81-b9c1-4c08948c5cb3)
+
+![8](https://github.com/user-attachments/assets/176d51cb-aa38-446c-9716-147b0771b29d)
+
+![9](https://github.com/user-attachments/assets/b07a5034-11b5-4d6a-b9e3-048919bf0e6b)
 
 ### Code
 
@@ -132,4 +148,6 @@ int main()
 - `O(n)`, Additional space is required for the temporary array used during merging.
 
 
+
+---
 Tags: sorting, mergesort, divide and conquer
