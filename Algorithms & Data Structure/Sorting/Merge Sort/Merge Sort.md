@@ -148,4 +148,6 @@ int main()
 - `O(n)`, Additional space is required for the temporary array used during merging.
 
 
+
+---
 Tags: sorting, mergesort, divide and conquer
