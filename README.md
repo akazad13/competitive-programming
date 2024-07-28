@@ -16,9 +16,9 @@ Checklist:
 
 #### Sorting
 
-- [Counting Sort](https://github.com/akazad13/competitive-programming/blob/main/Algorithms%20%26%20Data%20Structure/Sorting/Counting%20Sort/Counting%20Sort.md)
-- [Radix Sort](https://github.com/akazad13/competitive-programming/blob/main/Algorithms%20%26%20Data%20Structure/Sorting/Radix%20Sort/Radix%20Sort.md)
-- [Merge Sort](https://github.com/akazad13/competitive-programming/blob/main/Algorithms%20%26%20Data%20Structure/Sorting/Merge%20Sort/Merge%20Sort.md)
-- [Quick Sort](https://github.com/akazad13/competitive-programming/blob/main/Algorithms%20%26%20Data%20Structure/Sorting/Quick%20Sort/Quick%20Sort.md)
-- [Heap Sort](https://github.com/akazad13/competitive-programming/blob/main/Algorithms%20%26%20Data%20Structure/Sorting/Heap%20Sort/Heap%20Sort.md)
+- [Counting Sort](https://github.com/akazad13/competitive-programming/tree/main/Algorithms%20%26%20Data%20Structure/Sorting/Counting%20Sort)
+- [Radix Sort](https://github.com/akazad13/competitive-programming/tree/main/Algorithms%20%26%20Data%20Structure/Sorting/Radix%20Sort)
+- [Merge Sort](https://github.com/akazad13/competitive-programming/tree/main/Algorithms%20%26%20Data%20Structure/Sorting/Merge%20Sort)
+- [Quick Sort](https://github.com/akazad13/competitive-programming/tree/main/Algorithms%20%26%20Data%20Structure/Sorting/Quick%20Sort)
+- [Heap Sort](https://github.com/akazad13/competitive-programming/tree/main/Algorithms%20%26%20Data%20Structure/Sorting/Heap%20Sort)
 
