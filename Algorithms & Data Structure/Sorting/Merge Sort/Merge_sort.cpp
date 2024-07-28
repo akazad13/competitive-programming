@@ -1,88 +1,105 @@
-#include<iostream>
-#include<cstdio>
+#include <iostream>
+#include <vector>
+#include <cstdio>
 
 using namespace std;
-#define sc(n)               scanf("%d",&n)
-#define scl(n)              scanf("%lld",&n)
-#define print(n)            printf("%d", n);
-#define space()             printf(" ");
-#define newLine()           printf("\n");
-#define FOR0(i,n)           for(int i=0;i<n;i++)
-#define FOR1(i,n)           for(int i=1;i<=n;i++)
+#define scan(n) scanf("%d", &n)
+#define print(n) printf("%d", n);
+#define space() printf(" ");
+#define newLine() printf("\n");
+#define FOR(i, a, b) for (int i = a; i <= b; i++)
 
-int arr[100005];
-
-void merge(int left, int mid, int right) {
+void merge(vector<int> &nums, int left, int mid, int right)
+{
+    // decare left and right subarray indices
     int const leftSubArraySize = mid - left + 1;
     int const rightSubArraySize = right - mid;
 
-    // Create temp arrays
+    // declare and initialize left and right subarrays
     auto *leftSubArray = new int[leftSubArraySize],
          *rightSubArray = new int[rightSubArraySize];
 
-    FOR0(i,leftSubArraySize) {
-        leftSubArray[i] = arr[left+i];
+    // copy data to left subarray
+    FOR(i, 0, leftSubArraySize - 1)
+    {
+        leftSubArray[i] = nums[left + i];
     }
 
-    FOR0(i,rightSubArraySize) {
-        rightSubArray[i] = arr[mid+1+i];
+    // copy data to right subarray
+    FOR(i, 0, rightSubArraySize - 1)
+    {
+        rightSubArray[i] = nums[mid + 1 + i];
     }
 
     int currIndexOfRightSubArray = 0;
     int currIndexOfMergeArray = left;
 
-    FOR0(i, leftSubArraySize) {
-        if(currIndexOfRightSubArray >= rightSubArraySize) {
-            arr[currIndexOfMergeArray++] = leftSubArray[i];
-        } else {
-            while(
-                currIndexOfRightSubArray < rightSubArraySize 
-            &&  rightSubArray[currIndexOfRightSubArray] <= leftSubArray[i]
-            ) {
-                arr[currIndexOfMergeArray++] = rightSubArray[currIndexOfRightSubArray++];
+    // Merge the two subarrays into the original array
+    FOR(i, 0, leftSubArraySize - 1)
+    {
+        if (currIndexOfRightSubArray >= rightSubArraySize)
+        {
+            nums[currIndexOfMergeArray++] = leftSubArray[i];
+        }
+        else
+        {
+            while (
+                currIndexOfRightSubArray < rightSubArraySize && rightSubArray[currIndexOfRightSubArray] <= leftSubArray[i])
+            {
+                nums[currIndexOfMergeArray++] = rightSubArray[currIndexOfRightSubArray++];
             }
-            arr[currIndexOfMergeArray++] = leftSubArray[i];
+            nums[currIndexOfMergeArray++] = leftSubArray[i];
         }
     }
 
+    // Deallocate memory
     delete[] leftSubArray;
     delete[] rightSubArray;
-
     return;
 }
 
-void mergeSort(int begin, int end) 
+void mergeSort(vector<int> &nums, int begin, int end)
 {
-    if(begin < end) {
-        int mid = begin + (end - begin)/2;
+    if (begin < end)
+    {
+        // get the middle of the partition
+        int mid = begin + (end - begin) / 2;
 
-        mergeSort(begin, mid);
-        mergeSort(mid+1, end);
-        merge(begin, mid, end);
+        // Sort both halves recursively
+        mergeSort(nums, begin, mid);
+        mergeSort(nums, mid + 1, end);
+
+        // Merge the sorted halves into the original array
+        merge(nums, begin, mid, end);
     }
     return;
 }
 
 int main()
 {
-    #ifndef ONLINE_JUDGE
-        freopen("IO/input.txt", "r", stdin);
-        freopen("IO/output.txt", "w", stdout);
-    #endif // ONLINE_JUDGE
+#ifndef ONLINE_JUDGE
+    freopen("IO/input.txt", "r", stdin);
+    freopen("IO/output.txt", "w", stdout);
+#endif // ONLINE_JUDGE
 
-    int n,totalCase;
-    scl(totalCase);
-    FOR1(cs,totalCase) {
-        sc(n);
+    int n, totalCase;
+    vector<int> nums(100005);
 
-        FOR0(i,n) {
-            sc(arr[i]);
+    scan(totalCase);
+    FOR(cs, 1, totalCase)
+    {
+        scan(n);
+
+        FOR(i, 0, n - 1)
+        {
+            scan(nums[i]);
         }
 
-        mergeSort(0, n-1);
-        
-        FOR0(i,n) {
-            print(arr[i]);
+        mergeSort(nums, 0, n - 1);
+
+        FOR(i, 0, n - 1)
+        {
+            print(nums[i]);
             space();
         }
         newLine();
