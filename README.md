@@ -1,5 +1,5 @@
 # Competitive Programming
-This repository contains all the codes and programs of my competitive programming life. This includes Algorithm &amp; data structure theoretical coding, solution of different online judge's problems and supplementary topics.
+This repository contains all the codes and programs of my competitive programming life. This includes Algorithm & and data structure theoretical coding, solutions to different online judge's problems, and supplementary topics.
 
 Checklist:
   1. Can I solve the sub-problem of that problem
@@ -16,4 +16,9 @@ Checklist:
 
 #### Sorting
 
+- [Counting Sort](https://github.com/akazad13/competitive-programming/blob/main/Algorithms%20%26%20Data%20Structure/Sorting/Counting%20Sort/Counting%20Sort.md)
+- [Radix Sort](https://github.com/akazad13/competitive-programming/blob/main/Algorithms%20%26%20Data%20Structure/Sorting/Radix%20Sort/Radix%20Sort.md)
 - [Merge Sort](https://github.com/akazad13/competitive-programming/blob/main/Algorithms%20%26%20Data%20Structure/Sorting/Merge%20Sort/Merge%20Sort.md)
+- [Quick Sort](https://github.com/akazad13/competitive-programming/blob/main/Algorithms%20%26%20Data%20Structure/Sorting/Quick%20Sort/Quick%20Sort.md)
+- [Heap Sort](https://github.com/akazad13/competitive-programming/blob/main/Algorithms%20%26%20Data%20Structure/Sorting/Heap%20Sort/Heap%20Sort.md)
+
