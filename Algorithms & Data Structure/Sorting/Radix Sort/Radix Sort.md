@@ -128,4 +128,4 @@ int main()
 ### Use cases
 - When values are in the range from `1` to `n^2`.
 ---
-Tags: sorting, countingsort, divide and conquer
+Tags: sorting, countingsort

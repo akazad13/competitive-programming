@@ -1,28 +1,3 @@
-
-# Heap Sort
-
-Heap sort is a comparison-based sorting technique based on Binary Heap data structure. It is similar to the selection sort where we first find the minimum element and place the minimum element at the beginning. Repeat the same process for the remaining elements.
-
-
-### Algorithm
-
-First, convert the array into a heap data structure using the heapify process. Then, repeatedly delete the root node of the max-heap, replace it with the last node in the heap, and heapify the root. Repeat this process until the size of the heap is greater than 1.
-
-Steps to perform Heap Sort:
-
-1. Build a heap from the given input array.
-2. Repeat the following steps until the heap contains only one element:
-    - Swap the root element of the heap (the largest element) with the last element of the heap.
-    - Remove the last element of the heap (now in its correct position).
-    - Heapify the remaining elements of the heap.
-3. The sorted array is obtained by reversing the order of the elements in the input array.
-
-### Example
-
-
-### Code
-
-```cpp
 #include <iostream>
 #include <vector>
 #include <cstdio>
@@ -100,18 +75,3 @@ int main()
     }
     return 0;
 }
-
-```
-
-### Complexity Analysis:
-
-##### Time Complexity:
-
-- `O(nlogn)` 
-
-##### Space Complexity:
-- `O(logn)`, due to the recursive call stack. However, auxiliary space can be `O(1)` for iterative implementation.
-
-
----
-Tags: sorting, heapsort

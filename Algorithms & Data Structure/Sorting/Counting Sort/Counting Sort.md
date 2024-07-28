@@ -117,4 +117,4 @@ int main()
 - Counting sort is not an In-place sorting algorithm, It uses extra space for sorting the array elements.
 
 ---
-Tags: sorting, countingsort, divide and conquer
+Tags: sorting, countingsort
