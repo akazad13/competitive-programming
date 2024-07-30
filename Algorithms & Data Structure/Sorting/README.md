@@ -3,11 +3,11 @@
 
 ## Table of Contents
 
-- [Counting Sort]()
-- [Radix Sort]()
-- [Merge Sort]()
-- [Quick Sort]()
-- [Heap Sort]()
+- [Counting Sort](#counting-sort)
+- [Radix Sort](#radix-sort)
+- [Merge Sort](#merge-sort)
+- [Quick Sort](#quick-sort)
+- [Heap Sort](#heap-sort)
 
 ### Counting Sort
 
