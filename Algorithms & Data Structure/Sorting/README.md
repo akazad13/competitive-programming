@@ -9,6 +9,8 @@
 - [Quick Sort](#quick-sort)
 - [Heap Sort](#heap-sort)
 
+- [Summary](#summary)
+
 ### Counting Sort
 
 #### Time Complexity:
