@@ -67,3 +67,25 @@
 #### Space Complexity:
 - `O(logn)`, due to the recursive call stack. However, auxiliary space can be `O(1)` for iterative implementation.
 
+
+### Summary
+
+#### Time Complexity:
+
+| Algorithm     | Best Case    | Average case | Worst Case   |
+|---------------|--------------|--------------|--------------|
+| Counting Sort | `Ω(n+m)`     | `θ(n+m)`     | `O(n+m)`     |
+| Radix Sort    | `Ω(d*(n+b))` | `θ(d*(n+b))` | `O(d*(n+b))` |
+| Merge Sort    | `Ω(nlogn)`   | `θ(nlogn)`   | `O(nlogn)`   |
+| Quick Sort    | `Ω(nlogn)`   | `θ(nlogn)`   | `O(n^2)`     |
+| Heap Sort     | `Ω(nlogn)`   | `θ(nlogn)`   | `O(nlogn)`   |
+
+#### Space Complexity:
+
+| Algorithm     | Complexity |
+|---------------|------------|
+| Counting Sort | `Ω(n+m)`   |
+| Radix Sort    | `Ω(n+b)`   |
+| Merge Sort    | `Ω(n)`     |
+| Quick Sort    | `Ω(1)`     |
+| Heap Sort     | `Ω(1)`     |
