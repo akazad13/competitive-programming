@@ -123,10 +123,10 @@ $$\forall i, \; \text{SCC}(x_i) \ne \text{SCC}(\neg x_i)$$
 ## 6. Topological Sorting
 
 ### Kahn's Algorithm (In-Degree BFS) (`Topological-Sorting/TS-Algorithm.cpp`)
-1. Compute $\text{in\_degree}[u]$ for all vertices.
-2. Push all vertices with $\text{in\_degree} == 0$ into a queue.
-3. Dequeue $u$, append $u$ to topological order, and decrement $\text{in\_degree}[v]$ for all edges $(u, v)$.
-4. If $\text{in\_degree}[v]$ becomes 0, push $v$ into the queue.
+1. Compute $\text{inDegree}[u]$ for all vertices.
+2. Push all vertices with $\text{inDegree} == 0$ into a queue.
+3. Dequeue $u$, append $u$ to topological order, and decrement $\text{inDegree}[v]$ for all edges $(u, v)$.
+4. If $\text{inDegree}[v]$ becomes 0, push $v$ into the queue.
 5. If processed vertices $< V$, the graph contains a **cycle**.
 
 ### DFS Finish Times (`Topological-sort-using-DFS/solution.cpp`)

@@ -41,17 +41,17 @@ Digit DP counts integers in a range $[A, B]$ that satisfy specific digit-level p
 Instead of checking each number, compute $f(B) - f(A - 1)$ where $f(X)$ processes the decimal representation of $X$ from most significant to least significant digit.
 
 ### Universal State Representation
-$$\text{dp}(\text{pos}, \text{state}, \text{is\_tight}, \text{is\_started})$$
+$$\text{dp}(\text{pos}, \text{state}, \text{tight}, \text{started})$$
 - `pos`: current digit index being decided ($0 \le \text{pos} < \text{len}$).
-- `state`: problem-specific accumulator (e.g., $(\text{digit\_sum}) \pmod K$ and $(\text{num}) \pmod K$).
-- `is\_tight`: boolean flag. If true, the current digit cannot exceed the digit in the upper bound $X[\text{pos}]$. If false, digits can range freely from $0$ to $9$.
-- `is\_started`: boolean flag handling leading zeros when required.
+- `state`: problem-specific accumulator (e.g., $\text{DigitSum} \pmod K$ and $\text{num} \pmod K$).
+- `tight`: boolean flag. If true, the current digit cannot exceed the digit in the upper bound $X[\text{pos}]$. If false, digits can range freely from $0$ to $9$.
+- `started`: boolean flag handling leading zeros when required.
 
 ### Transitions
-For digit $d \in [0, \text{limit}]$ where $\text{limit} = \text{is\_tight} \; ? \; (X[\text{pos}] - '0') : 9$:
-$$\text{next\_tight} = \text{is\_tight} \land (d == \text{limit})$$
-$$\text{next\_state} = \text{update}(\text{state}, d)$$
-$$\text{res} = \sum_{d} \text{dp}(\text{pos} + 1, \text{next\_state}, \text{next\_tight})$$
+For digit $d \in [0, \text{limit}]$ where $\text{limit} = \text{tight} \; ? \; (X[\text{pos}] - '0') : 9$:
+$$\text{NextTight} = \text{tight} \land (d == \text{limit})$$
+$$\text{NextState} = \text{update}(\text{state}, d)$$
+$$\text{res} = \sum_{d} \text{dp}(\text{pos} + 1, \text{NextState}, \text{NextTight})$$
 
 - **Complexity:** $O(\text{len} \cdot |\text{state}| \cdot 10)$ time, highly efficient for $N \le 10^{18}$ ($\text{len} \le 18$).
 
@@ -77,16 +77,16 @@ For $N$ primes or divisors $a_0, a_1, \dots, a_{N-1}$:
 
 ### 1D Kadane
 Maintains the maximum subarray sum ending at current index $i$:
-$$\text{cur\_sum}_i = \max(A[i], \; \text{cur\_sum}_{i-1} + A[i])$$
-$$\text{max\_sum} = \max_i (\text{cur\_sum}_i)$$
-- **Index Reconstruction:** Track the start pointer: whenever $\text{cur\_sum}_{i-1} < 0$, reset start index to $i$.
+$$\text{CurSum}_i = \max(A[i], \; \text{CurSum}_{i-1} + A[i])$$
+$$\text{MaxSum} = \max_i (\text{CurSum}_i)$$
+- **Index Reconstruction:** Track the start pointer: whenever $\text{CurSum}_{i-1} < 0$, reset start index to $i$.
 - **Complexity:** $O(N)$ time, $O(1)$ space.
 
 ### 2D Kadane (Max Sum Submatrix) (`Max-sum-2D-subrectengular-Matrix-by-Kadane-algo/`)
 Finds the rectangle in a 2D matrix $M[R][C]$ with maximum sum:
 1. Fix all pairs of column boundaries $(L, R)$ where $0 \le L \le R < C$.
-2. For each row $i$, compress the columns into a 1D array: $\text{row\_sum}[i] = \sum_{j=L}^R M[i][j]$.
-3. Run 1D Kadane on $\text{row\_sum}$ across all rows $0 \dots R - 1$.
+2. For each row $i$, compress the columns into a 1D array: $\text{RowSum}[i] = \sum_{j=L}^R M[i][j]$.
+3. Run 1D Kadane on $\text{RowSum}$ across all rows $0 \dots R - 1$.
 - **Complexity:** $O(\text{Cols}^2 \cdot \text{Rows})$ time, $O(\text{Rows})$ space.
 
 ---

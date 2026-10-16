@@ -22,7 +22,7 @@ Stores prime flags using 32-bit integer bitmasks (`int status[N/32]`), reducing 
 Finds all primes in an interval $[L, R]$ where $R \le 10^{12}$ and $R - L \le 10^6$:
 1. Precompute small primes up to $\lfloor \sqrt{R} \rfloor$ using standard sieve.
 2. For each small prime $p$, mark its multiples in the range $[L, R]$:
-   $$\text{first\_multiple} = \max(p^2, \; \lceil L / p \rceil \cdot p)$$
+   $$\text{FirstMultiple} = \max(p^2, \; \lceil L / p \rceil \cdot p)$$
 - **Complexity:** $O((R - L + 1) \log \log R + \sqrt{R})$ time, $O(R - L + 1)$ space.
 
 ---

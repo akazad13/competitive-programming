@@ -56,6 +56,6 @@ $$\text{Result} = \max \left( \max_{i} (\text{PrefixProduct}_i), \; \max_{i} (\t
 
 ### DP State Alternative
 Alternatively, track both `max_ending_here` and `min_ending_here` at each index $i$:
-$$\text{max\_prod}[i] = \max(A[i], \; A[i] \cdot \text{max\_prod}[i-1], \; A[i] \cdot \text{min\_prod}[i-1])$$
-$$\text{min\_prod}[i] = \min(A[i], \; A[i] \cdot \text{max\_prod}[i-1], \; A[i] \cdot \text{min\_prod}[i-1])$$
+$$\text{MaxProd}[i] = \max(A[i], \; A[i] \cdot \text{MaxProd}[i-1], \; A[i] \cdot \text{MinProd}[i-1])$$
+$$\text{MinProd}[i] = \min(A[i], \; A[i] \cdot \text{MaxProd}[i-1], \; A[i] \cdot \text{MinProd}[i-1])$$
 Both approaches achieve optimal $O(N)$ time and $O(1)$ space.
