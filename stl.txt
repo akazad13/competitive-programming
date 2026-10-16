@@ -1,0 +1,75 @@
+// ============================================================================
+// C++ STL Quick Reference & Useful Snippets for Competitive Programming
+// ============================================================================
+
+// ----------------------------------------------------------------------------
+// 1. Merge two sorted vectors into a third vector
+// ----------------------------------------------------------------------------
+#include <iostream>
+#include <iterator>
+#include <vector>
+#include <algorithm>
+
+void example_merge() {
+    std::vector<int> foo = {10, 30, 50, 70, 90};
+    std::vector<int> bar = {20, 40, 60, 80, 100};
+    std::vector<int> v;
+
+    // Both foo and bar must be sorted
+    std::merge(foo.begin(), foo.end(), bar.begin(), bar.end(), std::back_inserter(v));
+
+    std::cout << "Merged vector:";
+    for (int x : v) std::cout << ' ' << x;
+    std::cout << '\n';
+}
+
+// ----------------------------------------------------------------------------
+// 2. Remove consecutive duplicates (std::unique)
+// ----------------------------------------------------------------------------
+void example_unique() {
+    std::vector<int> vec = {10, 20, 20, 20, 30, 30, 20, 20, 10};
+
+    // Vector must be sorted first to remove all duplicates
+    std::sort(vec.begin(), vec.end());
+
+    // std::unique moves duplicates to the end and returns iterator to the new end
+    auto it = std::unique(vec.begin(), vec.end());
+
+    // Resize vector to erase the duplicate tail
+    vec.resize(std::distance(vec.begin(), it));
+    // Alternatively: vec.erase(it, vec.end());
+
+    std::cout << "Unique elements:";
+    for (int x : vec) std::cout << ' ' << x;
+    std::cout << '\n';
+}
+
+// ----------------------------------------------------------------------------
+// 3. Binary Search Helpers (lower_bound, upper_bound)
+// ----------------------------------------------------------------------------
+void example_binary_search() {
+    std::vector<int> arr = {1, 2, 4, 4, 4, 7, 9};
+
+    // lower_bound: returns iterator to first element >= val
+    auto lb = std::lower_bound(arr.begin(), arr.end(), 4);
+    int lb_idx = std::distance(arr.begin(), lb); // index 2
+
+    // upper_bound: returns iterator to first element > val
+    auto ub = std::upper_bound(arr.begin(), arr.end(), 4);
+    int ub_idx = std::distance(arr.begin(), ub); // index 5
+
+    // Frequency of 4:
+    int count = ub - lb; // 3
+    std::cout << "Count of 4: " << count << '\n';
+}
+
+// ----------------------------------------------------------------------------
+// 4. Next / Prev Permutation
+// ----------------------------------------------------------------------------
+void example_permutation() {
+    std::vector<int> p = {1, 2, 3};
+    do {
+        for (int x : p) std::cout << x << ' ';
+        std::cout << '\n';
+    } while (std::next_permutation(p.begin(), p.end()));
+}

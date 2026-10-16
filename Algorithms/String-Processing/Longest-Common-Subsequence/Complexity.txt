@@ -1,0 +1,3 @@
+Longest Common Subsequence (LCS) Complexity:
+- Time Complexity:  O(n * m), where n = length of string 1, m = length of string 2.
+- Space Complexity: O(n * m) to store DP matrix and reconstruct path (can be optimized to O(min(n, m)) if only length is required).
