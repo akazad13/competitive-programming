@@ -150,6 +150,12 @@ int main() {
 
 ---
 
+## 🤖 AI-Driven Development & Contributing
+
+Autonomous coding agents (Antigravity, Cursor, Claude Code, GitHub Copilot) operating in this repository must consult [AGENTS.md](AGENTS.md) for C++17/20 compilation standards, algorithmic time/space constraints, and benchmark guidelines.
+
+---
+
 ## 👤 Author
 
 **Md. Abul Kalam**
