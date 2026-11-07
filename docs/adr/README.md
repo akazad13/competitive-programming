@@ -20,3 +20,4 @@ Historical ADRs are retained permanently to capture context and decision rationa
 | :---: | :--- | :---: | :---: | :--- |
 | [0001](0001-record-architecture-decisions.md) | **Record Architecture Decisions** | `Accepted` | 2026-11-07 | Adopt ADR methodology to track architectural choices, template conventions, and technical trade-offs. |
 | [0002](0002-cpp-standard-and-template-structure.md) | **C++ Standard Baseline and Competitive Template Structure** | `Accepted` | 2026-11-07 | Standardize on C++17/C++20 baseline, fast I/O invariants, 64-bit integer safety, and self-contained solution files. |
+| [0003](0003-testing-paradigm-and-agentic-verification.md) | **Testing Paradigm and Agentic Verification** | `Accepted` | 2026-11-07 | Codify I/O redirection testing, edge-case stress suites, multi-test state isolation, and automated pre-submission verification. |

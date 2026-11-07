@@ -53,11 +53,25 @@ g++ -std=c++20 -fsanitize=address,undefined -g solution.cpp -o solution
 
 ---
 
-## 4. Verification Gates for AI Agents
+## 4. Testing Paradigm & Agentic Verification
 
-Before submitting code changes or finishing a turn:
-1. Verify that solutions compile with `-Wall -Wextra` without warnings.
-2. Verify corner cases ($N=0, 1$, large inputs, negative values).
+All autonomous agents must follow the Competitive TDD workflow codified in [ADR-0003](docs/adr/0003-testing-paradigm-and-agentic-verification.md) before completing a solution:
+
+1. **Competitive TDD Cycle (Sample-First)**:
+   - **RED**: Capture sample I/O into `input.txt` and `expected.txt`. Verify initial code fails or asserts pending state.
+   - **GREEN**: Implement minimal, asymptotically sound algorithm to pass sample test cases.
+   - **REFACTOR**: Optimize asymptotic complexity and clean idioms without changing I/O behavior.
+2. **I/O Redirection & Exact Format Assertion**:
+   - Run `./solution < input.txt > output.txt` and compare strictly with `diff -u output.txt expected.txt`.
+   - Ensure zero presentation discrepancies (trailing spaces, missing newlines, case labels).
+3. **Multi-Test Case State Isolation**:
+   - Replay duplicate test cases consecutively (`t = 2` with identical payloads) to verify that outputs match identically and no global state bleeds across iterations.
+4. **Edge Case & Overflow Checklist**:
+   - Verify boundary conditions: $N=0, 1$, negative numbers, disconnected topologies, maximum constraints ($N=10^5, 10^6$).
+   - Verify 64-bit integer safety: Ensure calculations exceeding $2 \times 10^9$ use `long long` (`int64_t`).
+5. **Sanitizer & Diagnostic Gates**:
+   - Must compile with `-Wall -Wextra` without warnings.
+   - For memory corruption, array bounds, or undefined behavior, verify clean execution under `-fsanitize=address,undefined -g`.
 
 ---
 

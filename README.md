@@ -12,6 +12,7 @@
 [Overview](#-overview) •
 [Mental Checklist](#-contest-mental-checklist) •
 [Architecture](#-architecture--decisions) •
+[Testing](#-testing-paradigm--verification) •
 [Algorithms](#-1-algorithms) •
 [Data Structures](#-2-data-structures) •
 [Number Theory](#-3-math--number-theory) •
@@ -161,8 +162,35 @@ Major technical decisions, language baselines, performance invariants, and templ
 | :---: | :--- | :---: | :--- |
 | [0001](docs/adr/0001-record-architecture-decisions.md) | **Record Architecture Decisions** | `Accepted` | Adopt lightweight ADR process in `docs/adr/` to capture architectural context and trade-offs. |
 | [0002](docs/adr/0002-cpp-standard-and-template-structure.md) | **C++ Standard Baseline and Competitive Template Structure** | `Accepted` | Standardize on C++17/C++20, fast stream I/O, integer overflow guardrails, and self-contained solution files. |
+| [0003](docs/adr/0003-testing-paradigm-and-agentic-verification.md) | **Testing Paradigm and Agentic Verification** | `Accepted` | Codify I/O redirection testing, edge-case stress suites, multi-test state isolation, and automated pre-submission verification. |
 
 For complete decision history, status conventions, and guidelines, visit the [ADR Index](docs/adr/README.md).
+
+---
+
+## 🧪 Testing Paradigm & Verification
+
+All solutions and templates follow the Test-Driven Development (TDD) verification lifecycle codified in [ADR-0003](docs/adr/0003-testing-paradigm-and-agentic-verification.md):
+
+```bash
+# 1. Compile with C++20 and strict diagnostics
+g++ -std=c++20 -O2 -Wall -Wextra solution.cpp -o solution
+
+# 2. Test via standard stream redirection
+./solution < input.txt > output.txt
+
+# 3. Assert exact byte-for-byte output
+diff -u output.txt expected.txt
+
+# 4. Diagnose memory bounds and undefined behavior
+g++ -std=c++20 -fsanitize=address,undefined -g solution.cpp -o solution
+```
+
+### Core Testing Invariants
+- **Sample-First TDD**: Capture sample inputs and official outputs before implementing or refactoring core logic.
+- **Exact Format & Whitespace Matching**: Eliminate Presentation Errors (PE) by validating exact newlines and spacing against sample cases.
+- **Deterministic Multi-Test Isolation**: Repeat identical test cases consecutively (`t = 2`) to ensure dynamic programming tables and global arrays reset completely without cross-test state leakage.
+- **Stress & Edge Testing**: Validate minimum ($N=0, 1$), maximum ($N=10^5, 10^6$), and 64-bit integer overflow limits ($> 2 \times 10^9$) prior to submission.
 
 ---
 
