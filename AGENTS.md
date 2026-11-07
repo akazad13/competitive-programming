@@ -15,11 +15,14 @@ This document provides mandatory guidance for autonomous AI coding agents (Antig
 - `Data Structures/`: Segment Tree (Lazy propagation), Fenwick (BIT), AVL Trees, Disjoint Set Union (DSU), Mo's Sqrt Decomposition.
 - `Math/`: Number theory (Sieve, Miller-Rabin, Modular Arithmetic, Lucas Theorem, Extended GCD), Matrix Exponentiation, Combinatorics.
 - `Online Judges/`: Categorized accepted solutions (`UVA/`, `LightOJ/`, `SPOJ/`, `LeetCode/`, `HackerRank/`, `CodeChef/`).
+- `docs/adr/`: Architecture Decision Records documenting design standards, invariants, and rationale ([ADR Index](docs/adr/README.md)).
 - `Starting Template.cpp`: Standard contest template with fast I/O macros.
 
 ---
 
 ## 2. Inviolable Architectural Invariants
+
+All coding agents must uphold the following invariants, established in [ADR-0002](docs/adr/0002-cpp-standard-and-template-structure.md):
 
 1. **Fast I/O & Stream Synchronization**:
    - Always include `ios_base::sync_with_stdio(false); cin.tie(NULL);` in competitive templates.
@@ -28,7 +31,9 @@ This document provides mandatory guidance for autonomous AI coding agents (Antig
    - Use `long long` (`int64_t`) for cumulative calculations, factorials, matrix multiplication, and modular arithmetic to prevent 32-bit integer overflow.
 3. **Multi-Test Case State Sanitization**:
    - For multi-test case problems (`int t; cin >> t; while(t--)`), every global array, adjacency list, and DP memoization table must be reset (`memset` or `.clear()`) at the start of each iteration.
-4. **Code Quality**:
+4. **Self-Contained Submissions**:
+   - Every solution and algorithmic template must remain self-contained in a single file with zero external non-standard dependencies, ready for direct copy-paste submission to online judges.
+5. **Code Quality & Complexity**:
    - Preserve clean variable naming and add time/space complexity comments (`// Time: O(N log N), Space: O(N)`) to new solutions.
 
 ---
@@ -53,3 +58,13 @@ g++ -std=c++20 -fsanitize=address,undefined -g solution.cpp -o solution
 Before submitting code changes or finishing a turn:
 1. Verify that solutions compile with `-Wall -Wextra` without warnings.
 2. Verify corner cases ($N=0, 1$, large inputs, negative values).
+
+---
+
+## 5. Architecture Decision Records (ADRs)
+
+This repository documents technical decisions, template standards, and architectural trade-offs using ADRs in [`docs/adr/`](docs/adr/README.md).
+
+- **Consult ADRs First**: Before proposing structural or paradigm changes, review existing ADRs in `docs/adr/` to understand past decisions and constraints.
+- **Recording New Decisions**: When introducing a major architectural change, new baseline requirements, or structural modifications to standard templates, author a new ADR following the conventions defined in [ADR-0001: Record Architecture Decisions](docs/adr/0001-record-architecture-decisions.md).
+- **Index Maintenance**: Whenever a new ADR is added or updated, maintain the table in [docs/adr/README.md](docs/adr/README.md).

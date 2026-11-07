@@ -11,6 +11,7 @@
 
 [Overview](#-overview) •
 [Mental Checklist](#-contest-mental-checklist) •
+[Architecture](#-architecture--decisions) •
 [Algorithms](#-1-algorithms) •
 [Data Structures](#-2-data-structures) •
 [Number Theory](#-3-math--number-theory) •
@@ -68,6 +69,8 @@ competitive-programming/
 │   ├── Toph/                # 17 Accepted solutions
 │   ├── Spoj/                # 16 Accepted solutions
 │   └── LeetCode/            # 10 Accepted solutions
+├── docs/                    # Architectural documentation and decision records
+│   └── adr/                 # Architecture Decision Records (ADRs)
 ├── Starting Template.cpp    # Optimized C++ competitive template
 └── stl.txt                  # STL quick-reference cheatsheet
 ```
@@ -147,6 +150,19 @@ int main() {
     return 0;
 }
 ```
+
+---
+
+## 🏛️ Architecture & Decisions
+
+Major technical decisions, language baselines, performance invariants, and template design rationale are recorded as **Architecture Decision Records (ADRs)** in [`docs/adr/`](docs/adr/README.md):
+
+| ADR | Title | Status | Summary |
+| :---: | :--- | :---: | :--- |
+| [0001](docs/adr/0001-record-architecture-decisions.md) | **Record Architecture Decisions** | `Accepted` | Adopt lightweight ADR process in `docs/adr/` to capture architectural context and trade-offs. |
+| [0002](docs/adr/0002-cpp-standard-and-template-structure.md) | **C++ Standard Baseline and Competitive Template Structure** | `Accepted` | Standardize on C++17/C++20, fast stream I/O, integer overflow guardrails, and self-contained solution files. |
+
+For complete decision history, status conventions, and guidelines, visit the [ADR Index](docs/adr/README.md).
 
 ---
 
